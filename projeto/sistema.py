@@ -1,12 +1,13 @@
-from projeto.lib.interface import *
+from projeto.classes_metodos import Formatacao, ContaTempo, inicio, menu_inicial, menu
+
 
 if __name__ == "__main__":
     jogador = input("Digite seu nome: ")
     inicio(jogador)
     formato = Formatacao()
+    tempo_jogo = ContaTempo()
 
     while True:
-
         resposta = menu_inicial(['Revirar a casa atrás de respostas.',
                                  'Pegar a Pistola de portais.', 'Buscar uma fórmula científica.'])
         if resposta == 1:
@@ -19,14 +20,27 @@ if __name__ == "__main__":
                 formato.animacao(
                     '\033[31mVocê encontrou um alienígena que te aprisionou!\nRetornando ao início...\033[m\n')
                 inicio(jogador)
+                tempo_jogo.avanca_tempo(120)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
             elif respostaA == 2:
                 formato.cabecalho('\033[;1mAbrir frigobar\033[m')
                 formato.animacao(
                     '\033[31mNenhuma resposta, só latinhas de cerveja vazias!\nRetornando ao menu principal...\033[m\n')
+                tempo_jogo.avanca_tempo(30)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
                 continue
             elif respostaA == 3:
                 formato.cabecalho('\033[;1mIr para o laboratório\033[m')
-                formato.animacao('\033[36mOpa, você está no caminho certo!\033[m\n')
+                formato.animacao(
+                    '\033[36mOpa, você está no caminho certo!\033[m\n')
+                tempo_jogo.avanca_tempo(60)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
                 respostaA1 = menu(['Pegar a Pistola de portais.',
                                    'Misturar líquido azul com marrom.', 'Ler bloco de anotações.'])
                 if respostaA1 == 0:
@@ -39,18 +53,29 @@ if __name__ == "__main__":
                         '\033[31mAi meu deus, você caiu na boca de uma Python e foi devorado!\nRetornando ao '
                         'início...\033[m\n')
                     inicio(jogador)
-
+                    tempo_jogo.avanca_tempo(120)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                 elif respostaA1 == 2:
                     formato.cabecalho(
                         '\033[;1mMisturar líquido azul com marrom\033[m')
                     formato.animacao(
                         '\033[31mEi, você não tem conhecimentos para isso, sua fórmula explodiu!\nRetornando ao menu '
                         'principal...\033[m\n')
+                    tempo_jogo.avanca_tempo(30)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                     continue
                 elif respostaA1 == 3:
                     formato.cabecalho('\033[;1mLer bloco de anotações\033[m')
                     formato.animacao(
                         '\033[36mBingo! No bloco de anotações você encontrou possíveis respostas!\033[m\n')
+                    tempo_jogo.avanca_tempo(60)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                     respostaA2 = menu(['Tentar experimento da página 48.',
                                        'Tentar experimento da página 62.', 'Tentar experimento da página 221.'])
                     if respostaA2 == 0:
@@ -63,12 +88,20 @@ if __name__ == "__main__":
                             '\33[31mPutz, o experimento foi um fracasso e seu corpo desintegrou!\nRetornando ao '
                             'início...\033[m\n')
                         inicio(jogador)
+                        tempo_jogo.avanca_tempo(120)
+                        if tempo_jogo.tempo_final():
+                            break
+                        continue
                     elif respostaA2 == 2:
                         formato.cabecalho(
                             '\033[;1mTentar experimento da página 62\033[m')
                         formato.animacao(
                             '\033[31mParabéns! você conseguiu, mas, calma aí esse experimento é para se transformar: '
                             'em PICLES!\nRetornando ao menu principal...\033[m\n')
+                        tempo_jogo.avanca_tempo(30)
+                        if tempo_jogo.tempo_final():
+                            print('GAME OVER. Tempo esgotado.')
+                            break
                         continue
                     elif respostaA2 == 3:
                         formato.cabecalho(
@@ -92,15 +125,27 @@ if __name__ == "__main__":
                     '\033[31mAi meu deus, você caiu na boca de uma Python e foi devorado!\nRetornando ao '
                     'início...\033[m\n')
                 inicio(jogador)
+                tempo_jogo.avanca_tempo(120)
+                if tempo_jogo.tempo_final():
+                    break
             elif respostaB == 2:
                 formato.cabecalho('\033[;1mAchar minha mãe\033[m')
                 formato.animacao(
                     '\033[31mVocê acordou no colo da sua mãe e ela te disse três coisas:\nRetornando ao menu '
                     'principal...\033[m\n')
+                tempo_jogo.avanca_tempo(30)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
                 continue
             elif respostaB == 3:
                 formato.cabecalho('\033[;1mIr ao bar\033[m')
-                formato.animacao('\033[36mVocê encontrou o amigo de Nietzsche: Swift, cientista de 55 anos!\033[m\n')
+                formato.animacao(
+                    '\033[36mVocê encontrou o amigo de Nietzsche: Swift, cientista de 55 anos!\033[m\n')
+                tempo_jogo.avanca_tempo(60)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
                 respostaB1 = menu(
                     ['Beber com seu amigo.', 'Conversar sobre sua situação.', 'Chamar para jogar.'])
                 if respostaB1 == 0:
@@ -111,17 +156,28 @@ if __name__ == "__main__":
                     formato.animacao(
                         '\033[31mVocê bebeu até entrar em coma alcoólico \nRetornando ao início...\033[m\n')
                     inicio(jogador)
+                    tempo_jogo.avanca_tempo(120)
+                    if tempo_jogo.tempo_final():
+                        break
                 elif respostaB1 == 2:
                     formato.cabecalho(
                         '\033[;1mConversar sobre sua situação\033[m')
                     formato.animacao(
                         '\033[31mSeu amigo era um impostor, e na verdade era um alienígena que te roubou!\nRetornando '
                         'ao menu principal...\033[m\n')
+                    tempo_jogo.avanca_tempo(30)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                     continue
                 elif respostaB1 == 3:
                     formato.cabecalho('\033[;1mChamar para jogar\033[m')
-                    formato.animacao('\033[36mOpa, Swift não te reconheceu!\033[m\n')
-
+                    formato.animacao(
+                        '\033[36mOpa, Swift não te reconheceu!\033[m\n')
+                    tempo_jogo.avanca_tempo(60)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                     respostaB2 = menu(
                         ['Dizer seu nome a ele.', 'Pedir socorro gritando.', 'Tentar beber e conversar com Swift.'])
                     if respostaB2 == 0:
@@ -132,11 +188,19 @@ if __name__ == "__main__":
                         formato.animacao(
                             '\033[31mSwift acha que você é um impostor e te mata!\nRetornando ao início..\033[m\n')
                         inicio(jogador)
+                        tempo_jogo.avanca_tempo(120)
+                        if tempo_jogo.tempo_final():
+                            print('GAME OVER. Tempo esgotado.')
+                            break
                     elif respostaB2 == 2:
                         formato.cabecalho(
                             '\033[;1mPedir socorro gritando\033[m')
                         formato.animacao(
                             '\033[31mSwift ficou confuso e fugiu!\nRetornando ao menu principal...\033[m\n')
+                        tempo_jogo.avanca_tempo(30)
+                        if tempo_jogo.tempo_final():
+                            print('GAME OVER. Tempo esgotado.')
+                            break
                         continue
                     elif respostaB2 == 3:
                         formato.cabecalho(
@@ -159,16 +223,27 @@ if __name__ == "__main__":
                     '\033[31mEi, você não tem conhecimentos para isso, sua fórmula explodiu!\nRetornando ao '
                     'início...\033[m')
                 inicio(jogador)
+                tempo_jogo.avanca_tempo(120)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
             elif respostaC == 2:
                 formato.cabecalho('\033[;1mPedir socorro ao seu neto\033[m')
                 formato.animacao(
                     '\033[31mSeu neto ficou com medo e fugiu \nRetornando ao menu principal...\033[m\n')
+                tempo_jogo.avanca_tempo(30)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
                 continue
             elif respostaC == 3:
                 formato.cabecalho('\033[;1mLer bloco de anotações\033[m')
                 formato.animacao(
                     '\033[36mBingo! No bloco de anotações você encontrou possíveis respostas.\033[m\n')
-
+                tempo_jogo.avanca_tempo(60)
+                if tempo_jogo.tempo_final():
+                    print('GAME OVER. Tempo esgotado.')
+                    break
                 respostaC1 = menu(
                     ['Anotações página 1.', 'Anotações página 30.', 'Anotações página 221.'])
                 if respostaC1 == 0:
@@ -179,11 +254,19 @@ if __name__ == "__main__":
                     formato.animacao(
                         '\033[31mOpa, nessa anotação só tem receitas de cervejas!\nRetornando ao início...\033[m\n')
                     inicio(jogador)
+                    tempo_jogo.avanca_tempo(120)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                 elif respostaC1 == 2:
                     formato.cabecalho('\033[;1mAnotações página 30\033[m')
                     formato.animacao(
                         '\033[31mVocê conseguiu abrir um portal, mas caiu em um universo paralelo!\nRetornando ao '
                         'menu principal...\033[m\n')
+                    tempo_jogo.avanca_tempo(30)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                     continue
                 elif respostaC1 == 3:
                     formato.cabecalho(
@@ -193,6 +276,10 @@ if __name__ == "__main__":
                         '+++.----.-------.++++++++++++++.<<++.>>--------------.<<.>>++++++++.----\n'
                         '----.+++++++.----.++++++++++.<<.>>-.++++.----------------.<<.>>--.+++++++\n'
                         '+++++.--.+++.----.-------.+++++++++++++++++++.---------.<<<++++++++++.})\033[m\n')
+                    tempo_jogo.avanca_tempo(60)
+                    if tempo_jogo.tempo_final():
+                        print('GAME OVER. Tempo esgotado.')
+                        break
                     respostaC2 = menu(
                         ['Tentar decifrar.', 'Ver a próxima página.', 'Olhar no marcador de páginas.'])
                     if respostaC2 == 0:
@@ -203,10 +290,18 @@ if __name__ == "__main__":
                         formato.animacao(
                             '\033[31mÉ uma linguagem muito complexa!\nRetornando ao início...\033[m\n')
                         inicio(jogador)
+                        tempo_jogo.avanca_tempo(120)
+                        if tempo_jogo.tempo_final():
+                            print('GAME OVER. Tempo esgotado.')
+                            break
                     elif respostaC2 == 2:
                         formato.cabecalho('\033[;1mVer a próxima página\033[m')
                         formato.animacao(
                             '\033[31mSão só receitas de cerveja!Retornando ao menu principal...\033[m\n')
+                        tempo_jogo.avanca_tempo(30)
+                        if tempo_jogo.tempo_final():
+                            print('GAME OVER. Tempo esgotado.')
+                            break
                         continue
                     elif respostaC2 == 3:
                         formato.cabecalho(
