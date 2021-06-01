@@ -1,7 +1,9 @@
 # Jogo_Ficcao_Interativa
 O que é ficção interativa? Ficção interativa, geralmente abreviada como IF, é um software de emulação de ambientes no qual os jogadores usam comandos de texto para controlar personagens do jogo e influenciar o ambiente.
 
-Escopo do projeto
-Em grupos de 2 ou 3 pessoas, crie um jogo de ficção interativa que simule a rotina diária de um personagem. Você pode escolher entre rotinas matinais, rotinas de trabalho, rotinas de estudos, entre outras. A ideia do jogo é que o jogador faça as escolhas para o seu personagem e o conduza durante o seu dia. Cada escolha irá gerar uma consequência diferente para o seu personagem. O jogo acaba quando o dia do seu personagem acabar. Você será responsável pordeterminar o inicio e término do dia do seu personagem, além de avançar o
-tempo a cada escolha. É obrigatório o uso de orientação a objetos (classes, encapsulamento e polimorfismo), funções, laços (while) e condicionais (if, elif, else). Para o desenvolvimento do jogo os grupos devem utilizar o arquivo disponibilizado nomoodle como exemplo.Use toda sua criatividade para desenvolver uma história interessante e seja bem
-específico com relação as escolhas que precisam ser feitas, para que seu jogo seja divertido!
+# Aventura: Volte ao seu corpo!
+
+O projeto inicia com a apresentação da história ao jogador o direcionando ao menu principal. Nesta parte do jogo são apresentadas as opções do menu principal, cada escolha gera ao jogador uma consequência e diferentes possibilidades de conclusão. 
+O objetivo do jogo é trazer complexidade em seu enredo, proporcionando ao jogador a experiencia de se sentir dentro da narrativa. Além do envolvimento na história o usuário irá se intrigar ao correr contra o tempo para estar de volta ao seu corpo.
+Mediante o exposto, a experiência do usuário pode ser diversa com base nas diferentes possibilidades. O poder que está em suas mãos poderá salvá-lo ou levá-lo ao fim trágico conhecido com GAME OVER. Divirta-se refletindo sobre o poder que sua escolha tem e faça o possível para retornar ao seu corpo!
+ 
